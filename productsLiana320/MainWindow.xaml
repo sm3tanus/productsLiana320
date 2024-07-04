@@ -1,0 +1,100 @@
+﻿<Window x:Class="productsLiana320.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:productsLiana320"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox Grid.Row="0" Width="200" Margin="10" Height="40" TextAlignment="Center" VerticalContentAlignment="Center">Введите для поиска</TextBox>
+
+            <ComboBox Width="200"   Margin="10" Height="40" VerticalContentAlignment="Center">Сортировка</ComboBox>
+            <ComboBox Width="200" Margin="10"  Height="40"></ComboBox>
+        </StackPanel>
+        <ListView 
+                  x:Name="ingredientsLv"
+                  Grid.Row="1"
+                  Grid.RowSpan="4"   
+                  BorderBrush="Transparent" d:ItemsSource="{d:SampleData ItemCount=5}" >
+            <ListView.ItemsPanel >
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="1"
+                                
+                                 />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black"
+                            BorderThickness="1"
+                            CornerRadius="0"
+                            Background="White">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" 
+                                    HorizontalAlignment="Left"
+                                    Width="400"
+                                        VerticalAlignment="Center"
+                                    Height="120"
+                                    Margin="10 0 0 0"
+                                    Background="White"
+                                    Cursor="Hand">
+                                <Image></Image>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Тип продукта | Наименование продукта}"
+                                       FontSize="20"
+                                       Margin="0 10 0 10 "
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Foreground="black"
+                                       FontWeight="DemiBold"/>
+
+                                
+                                        <TextBlock Text="Артикул"
+                                           FontWeight="DemiBold"
+                                           FontSize="20"></TextBlock>
+                                       
+                                     
+                                  
+                                    <Button Name="DeleteBt"
+                                        HorizontalAlignment="Left"
+                                        Foreground="Red"
+                                        FontSize="20"
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
+                                            Click="del_Click">
+                                       Материалы: материал1, материал2...
+                                    </Button>
+                                </StackPanel>
+
+
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Margin="0 0 10 0">
+                 
+                          
+                                <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="20">Стоимость</TextBlock>
+                                
+                            </StackPanel>
+                        </StackPanel>
+
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</Window>
